@@ -17,6 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('/add', function() {
+    //
+    return \App\User::first()->add_friend(2);
+});
+
+
+Route::get('/accept', function() {
+    //
+    return \App\User::find(2)->accept_friend(4);
+});
+
+
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware'=>'auth'], function(){
